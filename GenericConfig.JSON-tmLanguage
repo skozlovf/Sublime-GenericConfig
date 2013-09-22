@@ -70,9 +70,8 @@
       },
       "comment": "Colorize key in lines like: key = value or key: value or key value"
     },
-    // $name, %name, $name$, %name%, $$name$$, %%name%%, ${name}, %{name}, $(name), %(name)
     {
-      "name": "variable.language.genconfig",
+      "name": "storage.source.genconfig",
       "match": "(%\\(\\w+\\))|(%{1,2}\\w+%{0,2})|(\\${1,2}\\w+\\${0,2})|([\\$%]\\{\\w+\\}|[\\$%]\\(\\w+\\))",
       "comment": "Var name: %name, %name%, $name, $name$, ${name}, %{name}, %(name), $(name)"
     },

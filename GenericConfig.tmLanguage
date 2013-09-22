@@ -141,7 +141,7 @@
 			<key>match</key>
 			<string>(%\(\w+\))|(%{1,2}\w+%{0,2})|(\${1,2}\w+\${0,2})|([\$%]\{\w+\}|[\$%]\(\w+\))</string>
 			<key>name</key>
-			<string>variable.language.genconfig</string>
+			<string>storage.source.genconfig</string>
 		</dict>
 		<dict>
 			<key>comment</key>
