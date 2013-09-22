@@ -8,7 +8,7 @@ It aims to provide generic highlighting for files which are
 not supported by other plugins (for example ini files, nginx config).
 
 This plugin may be used for a wide range of configuration files
-because highlighting is based on common syntax constructions
+because highlighting is based on common syntax constructions.
 
 Supported constructions
 -----------------------
