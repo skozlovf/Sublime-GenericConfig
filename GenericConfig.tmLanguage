@@ -179,7 +179,7 @@
 			<key>comment</key>
 			<string>Mime types (text/plain, application/x-javascript etc)</string>
 			<key>match</key>
-			<string>\b(?&lt;![/.])[\w-]+/[\w-]+(?![/.])\b</string>
+			<string>\b(?&lt;!/)[\w\-\.\+]+/[\w\-\.\+]+(?!/)\b</string>
 			<key>name</key>
 			<string>support.type.genconfig</string>
 		</dict>

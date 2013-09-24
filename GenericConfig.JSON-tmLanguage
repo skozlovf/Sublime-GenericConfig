@@ -97,7 +97,7 @@
     },
     {
       "name": "support.type.genconfig",
-      "match": "\\b(?<![/.])[\\w-]+/[\\w-]+(?![/.])\\b",
+      "match": "\\b(?<!/)[\\w\\-\\.\\+]+/[\\w\\-\\.\\+]+(?!/)\\b",
       "comment": "Mime types (text/plain, application/x-javascript etc)"
     },
     {
