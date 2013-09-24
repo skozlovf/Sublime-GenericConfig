@@ -18,7 +18,7 @@
 			<key>comment</key>
 			<string>Color (with alpha): #aacc4322, #bf34fa, #ccc</string>
 			<key>match</key>
-			<string>#([a-fA-F0-9]{8}|[a-fA-F0-9]{6}|[a-fA-F0-9]{3})</string>
+			<string>#([a-fA-F0-9]{8}|[a-fA-F0-9]{6}|[a-fA-F0-9]{3})\b</string>
 			<key>name</key>
 			<string>constant.other.genconfig</string>
 		</dict>
@@ -44,7 +44,7 @@
 			<key>comment</key>
 			<string>One line comment</string>
 			<key>match</key>
-			<string>(?:(#.*)|(--.*)|([^:]//.*))$
+			<string>(?:^\s*|\s+)(?:(#.*)|(--.*)|([^:]//.*))$
 ?</string>
 			<key>name</key>
 			<string>meta.comment.genconfig</string>
@@ -115,7 +115,7 @@
 			<key>comment</key>
 			<string>Keywords</string>
 			<key>match</key>
-			<string>(^\s*|\b)(?&lt;![.-])(function|define|ifn?def|endif|macro|insertmacro|index|location|alias|include|rewrite|if|then|else|start|stop|restart|with|alert)(?![.-])\b</string>
+			<string>(^\s*|\b)(?&lt;![.-])(function|define|ifn?def|endif|macro|insertmacro|index|location|alias|include|rewrite|if|then|else|start|stop|restart|with|alert|internal)(?![.-])\b</string>
 			<key>name</key>
 			<string>keyword.other.genconfig</string>
 		</dict>
@@ -131,7 +131,7 @@
 			<key>comment</key>
 			<string>Colorize key in lines like: key = value or key: value or key value</string>
 			<key>match</key>
-			<string>^\s*(\w+)[\s=:]\s*</string>
+			<string>^\s*(\w[\w-]*)[\s=:]\s*</string>
 			<key>name</key>
 			<string>meta.param.genconfig</string>
 		</dict>
@@ -155,7 +155,7 @@
 			<key>comment</key>
 			<string>URL like strings (http://name.org, ssh://111.22.33.4:42)</string>
 			<key>match</key>
-			<string>\w+://.*</string>
+			<string>\b(?:(\w+://.*)|localhost)\b</string>
 			<key>name</key>
 			<string>constant.other.genconfig</string>
 		</dict>

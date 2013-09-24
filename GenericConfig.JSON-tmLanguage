@@ -9,12 +9,12 @@
   "patterns": [
     {
       "name": "constant.other.genconfig",
-      "match": "#([a-fA-F0-9]{8}|[a-fA-F0-9]{6}|[a-fA-F0-9]{3})",
+      "match": "#([a-fA-F0-9]{8}|[a-fA-F0-9]{6}|[a-fA-F0-9]{3})\\b",
       "comment": "Color (with alpha): #aacc4322, #bf34fa, #ccc"
     },
     {
       "name": "meta.comment.genconfig",
-      "match": "(?:(#.*)|(--.*)|([^:]//.*))$\n?",
+      "match": "(?:^\\s*|\\s+)(?:(#.*)|(--.*)|([^:]//.*))$\n?",
       "captures": {
           "1": { "name": "comment.line.number-sign.genconfig" },
           "2": { "name": "comment.line.double-dash.genconfig" },
@@ -59,12 +59,12 @@
     },
     {
       "name": "keyword.other.genconfig",
-      "match": "(^\\s*|\\b)(?<![.-])(function|define|ifn?def|endif|macro|insertmacro|index|location|alias|include|rewrite|if|then|else|start|stop|restart|with|alert)(?![.-])\\b",
+      "match": "(^\\s*|\\b)(?<![.-])(function|define|ifn?def|endif|macro|insertmacro|index|location|alias|include|rewrite|if|then|else|start|stop|restart|with|alert|internal)(?![.-])\\b",
       "comment": "Keywords"
     },
     {
       "name": "meta.param.genconfig",
-      "match": "^\\s*(\\w+)[\\s=:]\\s*",
+      "match": "^\\s*(\\w[\\w-]*)[\\s=:]\\s*",
       "captures": {
           "1": { "name": "variable.parameter.genconfig" }
       },
@@ -82,7 +82,7 @@
     },
     {
       "name": "constant.other.genconfig",
-      "match": "\\w+://.*",
+      "match": "\\b(?:(\\w+://.*)|localhost)\\b",
       "comment": "URL like strings (http://name.org, ssh://111.22.33.4:42)"
     },
     {
