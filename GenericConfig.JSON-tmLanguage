@@ -14,7 +14,7 @@
     },
     {
       "name": "meta.comment.genconfig",
-      "match": "(?:^\\s*|\\s+)(?:(#.*)|(--.*)|([^:]//.*))$\n?",
+      "match": "(?:(?:^\\s*)|\\s+)(?:(#.*)|(--.*)|([^:]//.*))$\n?",
       "captures": {
           "1": { "name": "comment.line.number-sign.genconfig" },
           "2": { "name": "comment.line.double-dash.genconfig" },
@@ -24,7 +24,7 @@
     },
     {
       "name": "comment.line.number-sign.genconfig",
-      "match": "(?:^\\s*|\\s+);\\s*(?=.).*$\n?",
+      "match": "(?:(?:^\\s*)|\\s+);\\s*(?=.).*$\n?",
       "comment": "; one line comment"
     },
     // NOTE: values with chars after f will match too (like 0xZZZ)
@@ -72,7 +72,7 @@
     },
     {
       "name": "storage.source.genconfig",
-      "match": "(%\\(\\w+\\))|(%{1,2}\\w+%{0,2})|(\\${1,2}\\w+\\${0,2})|([\\$%]\\{\\w+\\}|[\\$%]\\(\\w+\\))",
+      "match": "([\\%\\$@]{1,2}\\{\\w+\\}[\\%\\$@]{0,2})|([\\%\\$@]{1,2}\\(\\w+\\)[\\%\\$@]{0,2})|([\\%\\$@]{1,2}\\w+[\\%\\$@]{0,2})",
       "comment": "Var name: %name, %name%, $name, $name$, ${name}, %{name}, %(name), $(name)"
     },
     {

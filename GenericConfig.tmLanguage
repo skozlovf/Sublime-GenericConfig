@@ -44,7 +44,7 @@
 			<key>comment</key>
 			<string>One line comment</string>
 			<key>match</key>
-			<string>(?:^\s*|\s+)(?:(#.*)|(--.*)|([^:]//.*))$
+			<string>(?:(?:^\s*)|\s+)(?:(#.*)|(--.*)|([^:]//.*))$
 ?</string>
 			<key>name</key>
 			<string>meta.comment.genconfig</string>
@@ -53,7 +53,7 @@
 			<key>comment</key>
 			<string>; one line comment</string>
 			<key>match</key>
-			<string>(?:^\s*|\s+);\s*(?=.).*$
+			<string>(?:(?:^\s*)|\s+);\s*(?=.).*$
 ?</string>
 			<key>name</key>
 			<string>comment.line.number-sign.genconfig</string>
@@ -139,7 +139,7 @@
 			<key>comment</key>
 			<string>Var name: %name, %name%, $name, $name$, ${name}, %{name}, %(name), $(name)</string>
 			<key>match</key>
-			<string>(%\(\w+\))|(%{1,2}\w+%{0,2})|(\${1,2}\w+\${0,2})|([\$%]\{\w+\}|[\$%]\(\w+\))</string>
+			<string>([\%\$@]{1,2}\{\w+\}[\%\$@]{0,2})|([\%\$@]{1,2}\(\w+\)[\%\$@]{0,2})|([\%\$@]{1,2}\w+[\%\$@]{0,2})</string>
 			<key>name</key>
 			<string>storage.source.genconfig</string>
 		</dict>
