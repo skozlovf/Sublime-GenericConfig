@@ -83,25 +83,12 @@
 			<string>constant.language.genconfig</string>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>string.quoted.signle.genconfig</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>string.quoted.double.genconfig</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Strings</string>
-			<key>match</key>
-			<string>('(?:[^']|\')*')|("(?:[^"]|\")*")</string>
-			<key>name</key>
-			<string>meta.string.genconfig</string>
+			<key>include</key>
+			<string>#double_string</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#single_string</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -200,6 +187,53 @@
 			<string>meta.function.genconfig</string>
 		</dict>
 	</array>
+	<key>repository</key>
+	<dict>
+		<key>double_string</key>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>end</key>
+			<string>"</string>
+			<key>name</key>
+			<string>string.quoted.double.genconfig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\\s*"</string>
+					<key>name</key>
+					<string>constant.character.genconfig</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#double_string</string>
+				</dict>
+			</array>
+		</dict>
+		<key>single_string</key>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>end</key>
+			<string>'</string>
+			<key>name</key>
+			<string>string.quoted.signle.genconfig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\\s*'</string>
+					<key>name</key>
+					<string>constant.character.genconfig</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#single_string</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 	<key>scopeName</key>
 	<string>source.genconfig</string>
 	<key>uuid</key>

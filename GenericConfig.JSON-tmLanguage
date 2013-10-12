@@ -43,15 +43,8 @@
       "match": "\\b(?<!-)([oO]n|[oO]ff|ON|OFF|[yY]es|[nN]o|YES|NO|[nN]ull|NULL|[nN]one|NONE|nan|NaN|NAN)(?!-)\\b",
       "comment": "Constant"
     },
-    {
-      "name": "meta.string.genconfig",
-      "match": "('(?:[^']|\\')*')|(\"(?:[^\"]|\\\")*\")",
-      "captures": {
-          "1": { "name": "string.quoted.signle.genconfig" },
-          "2": { "name": "string.quoted.double.genconfig" }
-      },
-      "comment": "Strings"
-    },
+    { "include": "#double_string" },
+    { "include": "#single_string" },
     {
       "name": "storage.type.genconfig",
       "match": "(?:^\\s*(\\w+)\\s*(?={))|(?:^\\s*(\\w+)\\s*$)|(^\\s*\\[.*\\]\\s*$)|(^\\s*\\<.*\\>\\s*$)",
@@ -108,5 +101,31 @@
       },
       "comment": "function call: name()"
     }
-  ]
+  ],
+  "repository": {
+    "double_string": {
+      "name": "string.quoted.double.genconfig",
+      "begin": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.genconfig",
+          "match": "\\\\\\s*\""
+        },
+        { "include": "#double_string" }
+      ],
+      "end": "\""
+    },
+    "single_string": {
+      "name": "string.quoted.signle.genconfig",
+      "begin": "'",
+      "patterns": [
+        {
+          "name": "constant.character.genconfig",
+          "match": "\\\\\\s*'"
+        },
+        { "include": "#single_string" }
+      ],
+      "end": "'"
+    }
+  }
 }
