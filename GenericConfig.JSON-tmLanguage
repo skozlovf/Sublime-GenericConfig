@@ -43,6 +43,8 @@
       "match": "\\b(?<!-)([oO]n|[oO]ff|ON|OFF|[yY]es|[nN]o|YES|NO|[nN]ull|NULL|[nN]one|NONE|nan|NaN|NAN)(?!-)\\b",
       "comment": "Constant"
     },
+    { "include": "#quoted_single_string" },
+    { "include": "#quoted_double_string" },
     { "include": "#double_string" },
     { "include": "#single_string" },
     {
@@ -126,6 +128,22 @@
         { "include": "#single_string" }
       ],
       "end": "'"
+    },
+    "quoted_single_string": {
+      "name": "string.quoted.qsignle.genconfig",
+      "begin": "\\\\'",
+      "patterns": [
+        { "include": "#quoted_single_string" }
+      ],
+      "end": "\\\\'"
+    },
+    "quoted_double_string": {
+      "name": "string.quoted.qdouble.genconfig",
+      "begin": "\\\\\"",
+      "patterns": [       
+        { "include": "#quoted_double_string" }
+      ],
+      "end": "\\\\\""
     }
   }
 }

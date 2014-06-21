@@ -84,6 +84,14 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#quoted_single_string</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#quoted_double_string</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#double_string</string>
 		</dict>
 		<dict>
@@ -208,6 +216,38 @@
 				<dict>
 					<key>include</key>
 					<string>#double_string</string>
+				</dict>
+			</array>
+		</dict>
+		<key>quoted_double_string</key>
+		<dict>
+			<key>begin</key>
+			<string>\\"</string>
+			<key>end</key>
+			<string>\\"</string>
+			<key>name</key>
+			<string>string.quoted.qdouble.genconfig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#quoted_double_string</string>
+				</dict>
+			</array>
+		</dict>
+		<key>quoted_single_string</key>
+		<dict>
+			<key>begin</key>
+			<string>\\'</string>
+			<key>end</key>
+			<string>\\'</string>
+			<key>name</key>
+			<string>string.quoted.qsignle.genconfig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#quoted_single_string</string>
 				</dict>
 			</array>
 		</dict>
