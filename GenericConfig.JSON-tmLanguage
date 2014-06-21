@@ -14,7 +14,7 @@
     },
     {
       "name": "meta.comment.genconfig",
-      "match": "(?:(?:^\\s*)|\\s+)(?:(#.*)|(--.*)|([^:]//.*))$\n?",
+      "match": "(?:(?:^\\s*)|\\s+)(?:(#.*)|(--\\s+.*)|([^:]//.*))$\n?",
       "captures": {
           "1": { "name": "comment.line.number-sign.genconfig" },
           "2": { "name": "comment.line.double-dash.genconfig" },
