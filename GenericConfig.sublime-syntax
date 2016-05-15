@@ -1,0 +1,113 @@
+%YAML 1.2
+---
+name: Generic Config
+file_extensions: [cfg, conf, config, ini, pro]
+scope: source.genconfig
+contexts:
+  main:
+    - match: '(?:(?:^\s*)|\s+)#([a-fA-F0-9]{8}|[a-fA-F0-9]{6}|[a-fA-F0-9]{3})\b'
+      comment: "Color (with alpha): #aacc4322, #bf34fa, #ccc"
+      scope: constant.other.genconfig
+
+    - match: (?:(?:^\s*)|\s+)(?:(#.*)|(--\s+.*)|(\/\/.*))$
+      comment: One line comment
+      scope: meta.comment.genconfig
+      captures:
+        1: comment.line.number-sign.genconfig
+        2: comment.line.double-dash.genconfig
+        3: comment.line.double-slash.genconfig
+    - match: (?:(?:^\s*)|\s+);\s*(?=.).*$
+      comment: ; one line comment
+      scope: comment.line.number-sign.genconfig
+
+    - match: \b[0-9]+([a-zA-Z]+)?\b
+      comment: Number or number with unit (like 10k, 12M, 92dpi etc) and also hex like values 0xdf
+      scope: constant.numeric.genconfig
+
+    - match: \b([tT]rue|[fF]alse|TRUE|FALSE)\b
+      comment: Constant
+      scope: constant.language.genconfig
+
+    - match: \b(?<!-)([oO]n|[oO]ff|ON|OFF|[yY]es|[nN]o|YES|NO|[nN]ull|NULL|[nN]one|NONE|nan|NaN|NAN)(?!-)\b
+      comment: Constant
+      scope: constant.language.genconfig
+
+    - match: (?:^\s*(\w+)\s*(?={))|(?:^\s*(\w+)\s*$)|(^\s*\[.*\]\s*$)|(^\s*\<.*\>\s*$)
+      comment: "One line word, or word with following {, or [word] or <word>"
+      scope: storage.type.genconfig
+
+    - match: '"'
+      push: double_string
+
+    - match: "'"
+      push: single_string
+
+    - match: \\"
+      push: quoted_double_string
+
+    - match: \\'
+      push: quoted_single_string
+
+    - match: (^\s*|\b)(?<![.-])(function|define|ifn?def|endif|macro|insertmacro|index|location|alias|include|rewrite|if|then|else|start|stop|restart|with|alert|internal)(?![.-])\b
+      comment: Keywords
+      scope: keyword.other.genconfig
+
+    - match: ([\%\$@]{1,2}\{\w+\}[\%\$@]{0,2})|([\%\$@]{1,2}\(\w+\)[\%\$@]{0,2})|([\%\$@]{1,2}\w+[\%\$@]{0,2})
+      comment: "Var name: %name, %name%, $name, $name$, ${name}, %{name}, %(name), $(name)"
+      scope: storage.source.genconfig
+
+    - match: \b[A-Z_][A-Z_0-9]*\b
+      comment: "Constant like names (ie in uppercase: NAME, SOME_NAME)"
+      scope: support.constant.genconfig
+
+    - match: \b(?:(\w+\:\/\/[^,\s]+)|localhost)\b
+      comment: "URL like strings (http://name.org, ssh://111.22.33.4:42)"
+      scope: meta.url.genconfig constant.other.genconfig
+
+    - match: ^\s*(\w[\w-]*)[\s=:]\s*
+      comment: 'Colorize key in lines like: key = value or key: value or key value'
+      scope: meta.param.genconfig
+      captures:
+        1: variable.parameter.genconfig
+
+    - match: \^.*\$
+      comment: RegExp
+      scope: string.regexp.genconfig
+
+    - match: (!|\~|%|=|\^|\+|\-|\<|\>|\?|\/|\*|\|)
+      comment: Operators
+      scope: keyword.operator.genconfig
+
+    - match: \b(?<!/)[\w\-\.\+]+/[\w\-\.\+]+(?!/)\b
+      comment: Mime types (text/plain, application/x-javascript etc)
+      scope: support.type.genconfig
+
+    - match: \b(\w+)\b\(
+      comment: "function call: name()"
+      scope: meta.function.genconfig
+      captures:
+        1: entity.name.function.genconfig
+
+  double_string:
+      - meta_scope: string.quoted.double.genconfig
+      - match: '"'
+        pop: true
+      - match: \\\s*"
+        scope: constant.character.genconfig
+
+  single_string:
+      - meta_scope: string.quoted.signle.genconfig
+      - match: "'"
+        pop: true
+      - match: \\\s*'
+        scope: constant.character.genconfig
+
+  quoted_double_string:
+      - meta_scope: string.quoted.qdouble.genconfig
+      - match: \\"
+        pop: true
+
+  quoted_single_string:
+      - meta_scope: string.quoted.qsignle.genconfig
+      - match: \\'
+        pop: true
