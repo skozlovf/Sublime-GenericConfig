@@ -64,11 +64,12 @@ contexts:
       comment: "URL like strings (http://name.org, ssh://111.22.33.4:42)"
       scope: meta.url.genconfig constant.other.genconfig
 
-    - match: ^\s*(\w[\w-]*)[\s=:]\s*
+    - match: ^\s*(\w[\w\-_]*)\s*(\:|=)?
       comment: 'Colorize key in lines like: key = value or key: value or key value'
       scope: meta.param.genconfig
       captures:
         1: variable.parameter.genconfig
+        2: keyword.other.genconfig
 
     - match: \^.*\$
       comment: RegExp
