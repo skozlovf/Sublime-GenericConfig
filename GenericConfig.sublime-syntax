@@ -1,7 +1,20 @@
 %YAML 1.2
 ---
 name: Generic Config
-file_extensions: [cfg, conf, config, ini, pro]
+file_extensions:
+  - cfg
+  - conf
+  - config
+  - ini
+  - pro
+  - mak
+  - mk
+  - .inputrc
+  - Doxyfile
+  - .dircolors
+  - .gitmodules
+  - .gitignore
+  - .gitattributes
 scope: source.genconfig
 contexts:
   main:
