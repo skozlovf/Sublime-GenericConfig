@@ -9,11 +9,16 @@ file_extensions:
   - pro
   - mak
   - mk
-  - .inputrc
   - Doxyfile
+  - inputrc
+  - .inputrc
+  - dircolors
   - .dircolors
+  - gitmodules
   - .gitmodules
+  - gitignore
   - .gitignore
+  - gitattributes
   - .gitattributes
 scope: source.genconfig
 contexts:
