@@ -23,38 +23,38 @@ file_extensions:
 scope: source.genconfig
 contexts:
   main:
+    # "Color (with alpha): #aacc4322, #bf34fa, #ccc"
     - match: '(?:(?:^\s*)|\s+)#([a-fA-F0-9]{8}|[a-fA-F0-9]{6}|[a-fA-F0-9]{3})\b'
-      comment: "Color (with alpha): #aacc4322, #bf34fa, #ccc"
       scope: constant.other.genconfig
 
+    # One line comment
     - match: (?:(?:^\s*)|\s+)(?:(#.*\n)|(--\s+.*\n)|(\/\/.*\n))$
-      comment: One line comment
       captures:
         1: comment.line.number-sign.genconfig
         2: comment.line.double-dash.genconfig
         3: comment.line.double-slash.genconfig
       scope: meta.comment.genconfig
+    # ; one line comment
     - match: (?:(?:^\s*)|\s+);\s*(?=.).*$
-      comment: ; one line comment
       scope: comment.line.number-sign.genconfig
 
     - match: \b(?:\d+\.){3}\d+(?:\:\d+)?\b
       scope: meta.ip.genconfig constant.other.genconfig
 
+    # Number or number with unit (like 10k, 12M, 92dpi etc) and also hex like values 0xdf
     - match: \b[0-9]+([a-zA-Z]+)?\b
-      comment: Number or number with unit (like 10k, 12M, 92dpi etc) and also hex like values 0xdf
       scope: constant.numeric.genconfig
 
+    # Constant
     - match: \b([tT]rue|[fF]alse|TRUE|FALSE)\b
-      comment: Constant
       scope: constant.language.genconfig
 
+    # Constant
     - match: \b(?<!-)([oO]n|[oO]ff|ON|OFF|[yY]es|[nN]o|YES|NO|[nN]ull|NULL|[nN]one|NONE|nan|NaN|NAN)(?!-)\b
-      comment: Constant
       scope: constant.language.genconfig
 
+    # "One line word, or word with following {, or [word] or <word>"
     - match: (?:^\s*(\w+)\s*(?={))|(?:^\s*(\w+)\s*$)|(^\s*\[.*\]\s*$)|(^\s*\<.*\>\s*$)
-      comment: "One line word, or word with following {, or [word] or <word>"
       scope: storage.type.genconfig
 
     - match: '"'
@@ -69,43 +69,43 @@ contexts:
     - match: \\'
       push: quoted_single_string
 
+    # Keywords
     - match: (^\s*|\b)(?<![.-])(function|define|ifn?def|endif|macro|insertmacro|index|location|alias|include|rewrite|if|then|else|start|stop|restart|with|alert|internal)(?![.-])\b
-      comment: Keywords
       scope: keyword.other.genconfig
 
+    # "Var name: %name, %name%, $name, $name$, ${name}, %{name}, %(name), $(name)"
     - match: ([\%\$@]{1,2}\{\w+\}[\%\$@]{0,2})|([\%\$@]{1,2}\(\w+\)[\%\$@]{0,2})|([\%\$@]{1,2}\w+[\%\$@]{0,2})
-      comment: "Var name: %name, %name%, $name, $name$, ${name}, %{name}, %(name), $(name)"
       scope: storage.source.genconfig
 
+    # "Constant like names (ie in uppercase: NAME, SOME_NAME)"
     - match: \b[A-Z_][A-Z_0-9]*\b
-      comment: "Constant like names (ie in uppercase: NAME, SOME_NAME)"
       scope: support.constant.genconfig
 
+    # "URL like strings (http://name.org, ssh://111.22.33.4:42)"
     - match: \b(?:(\w+\:\/\/[^,\s]+)|localhost)\b
-      comment: "URL like strings (http://name.org, ssh://111.22.33.4:42)"
       scope: meta.url.genconfig constant.other.genconfig
 
+    # 'Colorize key in lines like: key = value or key: value or key value'
     - match: ^\s*(\w[\w\-_]*)\s*(\:|=)?
-      comment: 'Colorize key in lines like: key = value or key: value or key value'
       scope: meta.param.genconfig
       captures:
         1: variable.parameter.genconfig
         2: keyword.other.genconfig
 
+    # RegExp
     - match: \^.*\$
-      comment: RegExp
       scope: string.regexp.genconfig
 
+    # Operators
     - match: (!|\~|%|=|\^|\+|\-|\<|\>|\?|\/|\*|\|)
-      comment: Operators
       scope: keyword.operator.genconfig
 
+    # Mime types (text/plain, application/x-javascript etc)
     - match: \b(?<!/)[\w\-\.\+]+/[\w\-\.\+]+(?!/)\b
-      comment: Mime types (text/plain, application/x-javascript etc)
       scope: support.type.genconfig
 
+    # "function call: name()"
     - match: \b(\w+)\b\(
-      comment: "function call: name()"
       scope: meta.function.genconfig
       captures:
         1: entity.name.function.genconfig
