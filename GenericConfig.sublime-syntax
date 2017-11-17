@@ -27,13 +27,13 @@ contexts:
       comment: "Color (with alpha): #aacc4322, #bf34fa, #ccc"
       scope: constant.other.genconfig
 
-    - match: (?:(?:^\s*)|\s+)(?:(#.*)|(--\s+.*)|(\/\/.*))$
+    - match: (?:(?:^\s*)|\s+)(?:(#.*\n)|(--\s+.*\n)|(\/\/.*\n))$
       comment: One line comment
-      scope: meta.comment.genconfig
       captures:
         1: comment.line.number-sign.genconfig
         2: comment.line.double-dash.genconfig
         3: comment.line.double-slash.genconfig
+      scope: meta.comment.genconfig
     - match: (?:(?:^\s*)|\s+);\s*(?=.).*$
       comment: ; one line comment
       scope: comment.line.number-sign.genconfig
