@@ -10,6 +10,8 @@ not supported by other plugins (for example ini files, nginx config).
 This plugin may be used for a wide range of configuration files
 because highlighting is based on common syntax constructions.
 
+*NOTE*: `0.0.6` is last version for Sublime Text 2.
+
 Supported constructions
 -----------------------
 
