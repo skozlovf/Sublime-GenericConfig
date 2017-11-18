@@ -28,7 +28,7 @@ contexts:
       scope: constant.other.genconfig
 
     # One line comment
-    - match: (?:(?:^\s*)|\s+)(?:(#.*\n)|(--\s+.*\n)|(\/\/.*\n))$
+    - match: (?:(?:^\s*)|\s+)(?:(#.*(?:\n)?)|(--\s+.*(?:\n)?)|(\/\/.*(?:\n)?))$
       captures:
         1: comment.line.number-sign.genconfig
         2: comment.line.double-dash.genconfig
