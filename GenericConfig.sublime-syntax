@@ -35,7 +35,7 @@ contexts:
         3: comment.line.double-slash.genconfig
       scope: meta.comment.genconfig
     # ; one line comment
-    - match: (?:(?:^\s*)|\s+);\s*(?=.).*$
+    - match: (?:(?:^\s*)|\s+);\s*(?=.).*(?:\n)?$
       scope: comment.line.number-sign.genconfig
 
     - match: \b(?:\d+\.){3}\d+(?:\:\d+)?\b
