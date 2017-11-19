@@ -56,11 +56,11 @@ contexts:
         1: entity.name.function.genconfig
 
     # Constant
-    - match: \b([tT]rue|[fF]alse|TRUE|FALSE)\b
+    - match: \b(?i:true|false)\b
       scope: constant.language.genconfig
 
     # Constant
-    - match: \b(?<!-)([oO]n|[oO]ff|ON|OFF|[yY]es|[nN]o|YES|NO|[nN]ull|NULL|[nN]one|NONE|nan|NaN|NAN)(?!-)\b
+    - match: \b(?<!-)(?i:on|off|yes|no|null|none|nan)(?!-)\b
       scope: constant.language.genconfig
 
     # "One line word, or word with following {, or [word] or <word>"
