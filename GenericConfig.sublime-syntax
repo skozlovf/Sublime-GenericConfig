@@ -34,9 +34,12 @@ contexts:
         2: comment.line.double-dash.genconfig
         3: comment.line.double-slash.genconfig
       scope: meta.comment.genconfig
+
     # ; one line comment
-    - match: (?:(?:^\s*)|\s+);\s*(?=.).*(?:\n)?$
-      scope: comment.line.number-sign.genconfig
+    - match: (?:(?:^\s*)|\s+)(;\s*(?=.).*(?:\n)?)$
+      scope: meta.comment.genconfig
+      captures:
+        1: comment.line.number-sign.genconfig
 
     - match: \b(?:\d+\.){3}\d+(?:\:\d+)?\b
       scope: meta.ip.genconfig constant.other.genconfig
