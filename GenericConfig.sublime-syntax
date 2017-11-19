@@ -49,6 +49,12 @@ contexts:
     - match: \b[0-9]+([a-zA-Z]+)?\b
       scope: constant.numeric.genconfig
 
+    # "function call: name()"
+    - match: \b(\w+)\b\(
+      scope: meta.function.genconfig
+      captures:
+        1: entity.name.function.genconfig
+
     # Constant
     - match: \b([tT]rue|[fF]alse|TRUE|FALSE)\b
       scope: constant.language.genconfig
@@ -107,12 +113,6 @@ contexts:
     # Mime types (text/plain, application/x-javascript etc)
     - match: \b(?<!/)[\w\-\.\+]+/[\w\-\.\+]+(?!/)\b
       scope: support.type.genconfig
-
-    # "function call: name()"
-    - match: \b(\w+)\b\(
-      scope: meta.function.genconfig
-      captures:
-        1: entity.name.function.genconfig
 
   double_string:
       - meta_scope: string.quoted.double.genconfig
