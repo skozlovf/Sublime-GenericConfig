@@ -41,7 +41,8 @@ contexts:
       captures:
         1: comment.line.number-sign.genconfig
 
-    - match: \b(?:\d+\.){3}\d+(?:\:\d+)?\b
+    # IP
+    - match: \b(?:\d+\.){3}\d+(?:(?:\:|\/)\d+)?\b
       scope: meta.ip.genconfig constant.other.genconfig
 
     # Number or number with unit (like 10k, 12M, 92dpi etc) and also hex like values 0xdf
