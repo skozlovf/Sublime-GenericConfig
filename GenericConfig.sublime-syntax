@@ -107,7 +107,7 @@ contexts:
       scope: string.regexp.genconfig
 
     # Operators
-    - match: (!|\~|%|=|\^|\+|\-|\<|\>|\?|\/|\*|\|)
+    - match: (!|\~|%|=|\^|\+|\-|\<|\>|\?|\/|\*|\\|\||\:|\.|\,)
       scope: keyword.operator.genconfig
 
     # Mime types (text/plain, application/x-javascript etc)
