@@ -63,7 +63,7 @@ contexts:
     - match: \b(?<!-)(?i:on|off|yes|no|null|none|nan)(?!-)\b
       scope: constant.language.genconfig
 
-    # "One line word, or word with following {, or [word] or <word>"
+    # One line word, or word with following {, or [word] or <word>
     - match: (?:^\s*(\w+)\s*(?={))|(?:^\s*(\w+)\s*$)|(^\s*\[.*\]\s*$)|(^\s*\<.*\>\s*$)
       scope: storage.type.genconfig
 
