@@ -100,7 +100,7 @@ contexts:
       scope: meta.param.genconfig
       captures:
         1: variable.parameter.genconfig
-        2: keyword.other.genconfig
+        2: keyword.operator.genconfig
 
     # RegExp
     - match: \^.*\$
