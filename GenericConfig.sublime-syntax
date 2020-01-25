@@ -1,5 +1,6 @@
 %YAML 1.2
 ---
+# TODO: rework to use new SublimeText regex engine.
 name: Generic Config
 file_extensions:
   - cfg
@@ -40,6 +41,13 @@ contexts:
       scope: meta.comment.genconfig
       captures:
         1: comment.line.number-sign.genconfig
+
+    # c-like block comments.
+    # NOTE: This block must have a space after opening literal to not break
+    #       other constructions like '/path/to/*.conf'
+    - match: /\*+\s
+      scope: comment.block.genconfig
+      push: block_comment
 
     # IP
     - match: \b(?:\d+\.){3}\d+(?:(?:\:|\/)\d+)?\b
@@ -137,3 +145,9 @@ contexts:
       - meta_scope: string.quoted.qsignle.genconfig
       - match: \\'
         pop: true
+
+  block_comment:
+    - meta_scope: comment.block.genconfig
+    - match: \*/
+      scope: comment.block.genconfig
+      pop: true
