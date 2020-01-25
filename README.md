@@ -16,6 +16,7 @@ Supported constructions
 -----------------------
 
 * One line comments (`#`, `//`, `--` and `;`)
+* Block comments (`/* ... */`)
 * Numbers, hex values, numbers with units (`12M`, `10kHz` etc)
 * Color (`#ccc`, `#12ccff` etc)
 * Common constants (`true`/`false`, `yes`/`no` etc)
