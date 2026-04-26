@@ -8,19 +8,12 @@ file_extensions:
   - config
   - ini
   - pro
-  - mak
-  - mk
   - Doxyfile
   - inputrc
   - .inputrc
   - dircolors
   - .dircolors
-  - gitmodules
-  - .gitmodules
-  - gitignore
-  - .gitignore
-  - gitattributes
-  - .gitattributes
+  - service
 scope: source.genconfig
 contexts:
   main:
