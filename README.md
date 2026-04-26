@@ -30,3 +30,31 @@ Supported constructions
 * Common operators (`+`, `-` etc)
 * Mime-like strings (`image/gif`, `multipart/form-data` etc)
 * Function call (`name()`)
+
+Usage
+-----
+
+You can trigger `GenericConfig` manually for unknown files via the UI:
+- `View -> Syntax -> Generic Config`
+- `View -> Syntax -> Open all with current extension as ... -> Generic Config`
+
+Or via settings:
+
+To automatically associate `GenericConfig` with specific file extensions, create or edit 
+the settings file at `Packages/User/GenericConfig.sublime-settings`
+(or any other [supported location](https://www.sublimetext.com/docs/settings.html#settings-files)):
+
+```json
+{
+  "extensions":
+  [
+    "myext1",
+    "another-ext",
+    "mak",
+    "mk"
+  ]
+}
+```
+
+In case of file type conflicts, you can override GenericConfig defaults by adding extensions to 
+`<syntax>.sublime-settings` if you have any overlaps.
